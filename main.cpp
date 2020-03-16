@@ -139,6 +139,19 @@ CharNode *newCharNode()
     }
     return ptr;
 }
+void freeNode(CharNode *ptr)
+{
+    if(ptr == NULL)
+    {
+        return;
+    }
+    for(int i=0;i<26;i++)
+    {
+        freeNode(ptr->childs[i]);
+    }
+    free(ptr->charData);
+    free(ptr);
+}
 /*将给定的字符串解析为多叉树，返回头指针
  例如：che,chen,joy
  会生成多叉树
@@ -260,6 +273,7 @@ int splitStringToWord(const string &textSet,const string &inputStr)
             }
         }
     }
+    freeNode(head);
     printf("---- exist str = %s\n",existStr.c_str());
     printf("---- not exist str = %s\n",notExistStr.c_str());
     return ret;
