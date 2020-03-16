@@ -297,5 +297,10 @@ int main()
     string inputStr = "abc";
     int ret3 = splitStringToWord(textSet, inputStr);
     printf("---- ret3 = %d\n",ret3);
+    
+    //第四题逻辑题
+    /*设总共走的路径的为L
+     当L为半圆时面积最大
+     */
     return 0;
 }
